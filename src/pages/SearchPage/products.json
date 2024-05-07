@@ -1,92 +1,92 @@
 [
     {
-        "nome": "5OYw8ohmhl",
-        "marca": "kxfI1nkVQa",
-        "linha": "gS6tAya2wR",
-        "familia": "JejzVSJT3O",
-        "codigo": "B21cw8MXr3",
-        "imagem": "https://loremflickr.com/640/480?lock=8506787607085056",
-        "preco": 54.04405892803334
+        "name": "5OYw8ohmhl",
+        "brand": "kxfI1nkVQa",
+        "line": "gS6tAya2wR",
+        "family": "JejzVSJT3O",
+        "code": "B21cw8MXr3",
+        "image": "https://loremflickr.com/640/480?lock=8506787607085056",
+        "price": 54.04405892803334
     },
     {
-        "nome": "3EJ0dbCPR3",
-        "marca": "DaAXxt2a8L",
-        "linha": "qHj3YDaNPa",
-        "familia": "blM54dtymv",
-        "codigo": "ltiXwkWQ9Z",
-        "imagem": "https://picsum.photos/seed/2pjrIKx3/640/480",
-        "preco": 68.64310994092375
+        "name": "3EJ0dbCPR3",
+        "brand": "DaAXxt2a8L",
+        "line": "qHj3YDaNPa",
+        "family": "blM54dtymv",
+        "code": "ltiXwkWQ9Z",
+        "image": "https://picsum.photos/seed/2pjrIKx3/640/480",
+        "price": 68.64310994092375
     },
     {
-        "nome": "bs8qx74sz5",
-        "marca": "cH6N8arusK",
-        "linha": "mzzbNW9P51",
-        "familia": "nH8t7JoY71",
-        "codigo": "BbLmTN5BOy",
-        "imagem": "https://loremflickr.com/640/480?lock=5717543236927488",
-        "preco": 32.136412983061746
+        "name": "bs8qx74sz5",
+        "brand": "cH6N8arusK",
+        "line": "mzzbNW9P51",
+        "family": "nH8t7JoY71",
+        "code": "BbLmTN5BOy",
+        "image": "https://loremflickr.com/640/480?lock=5717543236927488",
+        "price": 32.136412983061746
     },
     {
-        "nome": "NC5vysr3UV",
-        "marca": "fo9vKtx610",
-        "linha": "1WLXFe8eC9",
-        "familia": "Q0pBxZ98yJ",
-        "codigo": "pe9p7pDeLi",
-        "imagem": "https://loremflickr.com/640/480?lock=2275861503934464",
-        "preco": 4.771473478991538
+        "name": "NC5vysr3UV",
+        "brand": "fo9vKtx610",
+        "line": "1WLXFe8eC9",
+        "family": "Q0pBxZ98yJ",
+        "code": "pe9p7pDeLi",
+        "image": "https://loremflickr.com/640/480?lock=2275861503934464",
+        "price": 4.771473478991538
     },
     {
-        "nome": "1Z9Z9Z9Z9Z",
-        "marca": "1Z9Z9Z9Z9Z",
-        "linha": "1Z9Z9Z9Z9Z",
-        "familia": "1Z9Z9Z9Z9Z",
-        "codigo": "1ZeZ9Z9Z9Z",
-        "imagem": "https://loremflickr.com/640/480?lock=1Z9Z9Z9Z9Z",
-        "preco": 1.0
+        "name": "1Z9Z9Z9Z9Z",
+        "brand": "1Z9Z9Z9Z9Z",
+        "line": "1Z9Z9Z9Z9Z",
+        "family": "1Z9Z9Z9Z9Z",
+        "code": "1ZeZ9Z9Z9Z",
+        "image": "https://loremflickr.com/640/480?lock=1Z9Z9Z9Z9Z",
+        "price": 1.0
     },
     {
-        "nome": "1Z9Z9Z9Z9Z",
-        "marca": "1Z9wdZ9Z9Z",
-        "linha": "1Z9Z9Z9Z9Z",
-        "familia": "1Z9Z9Z9Z9Z",
-        "codigo": "1Z9Z9Z9Z9Z",
-        "imagem": "https://loremflickr.com/640/480?lock=1Z9Z9Z9Z9Z",
-        "preco": 1.0
+        "name": "1Z9Z9Z9Z9Z",
+        "brand": "1Z9wdZ9Z9Z",
+        "line": "1Z9Z9Z9Z9Z",
+        "family": "1Z9Z9Z9Z9Z",
+        "code": "1Z9Z9Z9Z9Z",
+        "image": "https://loremflickr.com/640/480?lock=1Z9Z9Z9Z9Z",
+        "price": 1.0
     },
     {
-        "nome": "1Z9Z9Z9Z9Z",
-        "marca": "1Z9Z9Z9Z9Z",
-        "linha": "1Z9Z9Z9Z9Z",
-        "familia": "1Z9Z9Z9Z9Z",
-        "codigo": "1Z9Z9ZsG9Z",
-        "imagem": "https://loremflickr.com/640/480?lock=1Z9Z9Z9Z9Z",
-        "preco": 1.0
+        "name": "1Z9Z9Z9Z9Z",
+        "brand": "1Z9Z9Z9Z9Z",
+        "line": "1Z9Z9Z9Z9Z",
+        "family": "1Z9Z9Z9Z9Z",
+        "code": "1Z9Z9ZsG9Z",
+        "image": "https://loremflickr.com/640/480?lock=1Z9Z9Z9Z9Z",
+        "price": 1.0
     },
     {
-        "nome": "1Z9Z9Z9Z9Z",
-        "marca": "1Z9Z9Z9Z9Z",
-        "linha": "1Z9Z9Z9Z9Z",
-        "familia": "1Z9Z9Z9Z9Z",
-        "codigo": "1Z9Z9s9Z9Z",
-        "imagem": "https://loremflickr.com/640/480?lock=1Z9Z9Z9Z9Z",
-        "preco": 1.0
+        "name": "1Z9Z9Z9Z9Z",
+        "brand": "1Z9Z9Z9Z9Z",
+        "line": "1Z9Z9Z9Z9Z",
+        "family": "1Z9Z9Z9Z9Z",
+        "code": "1Z9Z9s9Z9Z",
+        "image": "https://loremflickr.com/640/480?lock=1Z9Z9Z9Z9Z",
+        "price": 1.0
     },
     {
-        "nome": "1Z9Z9Z9Z9Z",
-        "marca": "1Z9Z9Z9Z9Z",
-        "linha": "1Z9Z9Z9Z9Z",
-        "familia": "1Z9Z9Z9Z9Z",
-        "codigo": "1Z9Z9ajaZ9Z",
-        "imagem": "https://loremflickr.com/640/480?lock=1Z9Z9Z9Z9Z",
-        "preco": 1.0
+        "name": "1Z9Z9Z9Z9Z",
+        "brand": "1Z9Z9Z9Z9Z",
+        "line": "1Z9Z9Z9Z9Z",
+        "family": "1Z9Z9Z9Z9Z",
+        "code": "1Z9Z9ajaZ9Z",
+        "image": "https://loremflickr.com/640/480?lock=1Z9Z9Z9Z9Z",
+        "price": 1.0
     },
     {
-        "nome": "1Z9Z9Z9Z9Z",
-        "marca": "1Z9Z9Z9Z9Z",
-        "linha": "1Z9Z9Z9Z9Z",
-        "familia": "1Z9Z9Z9Z9Z",
-        "codigo": "1Z9rtZ9Z9Z",
-        "imagem": "https://loremflickr.com/640/480?lock=1Z9Z9Z9Z9Z",
-        "preco": 1.0
+        "name": "1Z9Z9Z9Z9Z",
+        "brand": "1Z9Z9Z9Z9Z",
+        "line": "1Z9Z9Z9Z9Z",
+        "family": "1Z9Z9Z9Z9Z",
+        "code": "1Z9rtZ9Z9Z",
+        "image": "https://loremflickr.com/640/480?lock=1Z9Z9Z9Z9Z",
+        "price": 1.0
     }
 ]

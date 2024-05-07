@@ -1,0 +1,41 @@
+.modalContent{
+    background-color: var(--color-middle-gray);
+    padding: 2rem;
+}
+
+.imagePlaceholder {
+    border-radius: 20px;
+    background-color: #ccc;
+    max-width: 300px;
+    height: auto;
+}
+
+.productDetails {
+    /* Estilos para os detalhes do produto */
+    padding: 1rem;
+}
+
+
+
+.quantity {
+    margin: 0 1rem;
+}
+
+.modalFooter {
+    /* Remover a borda superior padrão do footer do modal */
+    border-top: none;
+}
+
+.addButton {
+    background-color: var(--color-green);
+    border: 0;
+}
+.addButton:hover, .addButton:focus, .addButton:active {
+    background-color: var(--color-green-darker);
+
+}
+.addButton:not(:disabled):not(.disabled):active,
+.addButton:not(:disabled):not(.disabled).active,
+.show > .addButton.dropdown-toggle {
+    background-color: var(--color-green-darker);
+}
