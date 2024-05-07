@@ -1,0 +1,27 @@
+.backButton {
+    display: flex;
+    align-items: center;
+    color: #ffffff; /* Cor do texto */
+    font-size: 18px;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}
+.backButton:hover,
+.backButton:focus {
+   background-color: var(--color-dark-gray) !important; /* Cor de fundo */
+}
+
+.cartTitle {
+    color: #e23c3c; /* Cor vermelha para o título */
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.separator {
+    border: 1px solid var(--color-white);
+    margin: 10px 0 20px;
+}
+
