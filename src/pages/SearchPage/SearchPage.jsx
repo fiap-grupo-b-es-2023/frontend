@@ -1,104 +1,151 @@
-import { useCallback, useState } from "react"
+import {useState, useEffect, useCallback, useRef} from "react";
 import {FaShoppingCart} from 'react-icons/fa';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Container from "react-bootstrap/Container";
+import TableContainer from '@mui/material/TableContainer';
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
+import TableBody from '@mui/material/TableBody';
+import {Autocomplete, TextField} from '@mui/material';
+
 import style from './SearchPage.module.css';
 import products from './products.json';
 
-function matches(searchValue, product) {
-    const { nome, marca, linha, familia, codigo } = product;
-    const targets = [ nome.toLowerCase(), marca.toLowerCase(), linha.toLowerCase(), familia.toLowerCase(), codigo.toLowerCase() ];
-
-    return targets.includes(searchValue.toLowerCase());
+// Função que gera as opções de busca responsivas
+function getSearchOptions(searchValue) {
+    return [
+        {label: `Buscar "${searchValue}" em código`, value: "codigo"},
+        {label: `Buscar "${searchValue}" em produto`, value: "nome"},
+        {label: `Buscar "${searchValue}" em marca`, value: "marca"},
+        {label: `Buscar "${searchValue}" em família`, value: "familia"},
+        {label: `Buscar "${searchValue}" em linhas`, value: "linha"},
+    ];
 }
 
+function matches(searchValue, product, category) {
+    if (!category || !searchValue) return false;
+    const value = product[category]?.toLowerCase();
+    return value?.includes(searchValue.toLowerCase());
+}
+
+
 export default function SearchPage() {
-
     const [searchValue, setSearchValue] = useState("");
+    const [searchType, setSearchType] = useState(null);
     const [currentProducts, setCurrentProducts] = useState(products);
+    const [searchOptions, setSearchOptions] = useState(getSearchOptions(""));
+    const autocompleteOpen = useRef(false);
 
-    const handleKeyDown = (event) => {
-        if(event.key === "Enter") {
-            startSearch(searchValue);
+    useEffect(() => {
+        if (searchValue) {
+            setSearchOptions(getSearchOptions(searchValue));
+            autocompleteOpen.current = true;
+        } else {
+            autocompleteOpen.current = false;
         }
-    }
+    }, [searchValue]);
 
-    const handleSearchChange = (event) => {
-        setSearchValue(event.target.value);
-    }
+    useEffect(() => {
+        startSearch();
+    }, [searchType]);
 
-    const startSearch = (searchValue) => {
-        console.log(`Searching for: "${searchValue}"`);
+    const handleOptionSelect = useCallback((event, newValue) => {
+        if (newValue) {
+            setSearchType(newValue.value);
+            autocompleteOpen.current = false;
+        } else {
+            setSearchType(null);
+            setSearchValue("");
+        }
+    }, []);
 
-        if(!searchValue) {
-            console.log("resetting...");
+    const startSearch = useCallback(() => {
+        if (!searchValue) {
             setCurrentProducts(products);
             return;
         }
-
-        setCurrentProducts(
-            products.filter(p => matches(searchValue, p))
+        const filteredProducts = products.filter((p) =>
+            matches(searchValue, p, searchType)
         );
+        setCurrentProducts(filteredProducts);
+    }, [searchValue, searchType]);
 
-        console.log(currentProducts);
-    }
+    const handleFocus = () => {
+        autocompleteOpen.current = true;
+    };
+
+    const handleBlur = () => {
+        autocompleteOpen.current = false;
+    };
 
     return (
-        <div className={style.main}>
-            <div className={style.appCenter}>
-                <div className="container">
-                    <div className="row gy-5">
-                        <div className="col-10 d-flex">
-                            <input 
-                                className={style.searchInput}
-                                type="text" 
-                                id="main_search" 
-                                onChange={handleSearchChange}
-                                onKeyDown={handleKeyDown}
-                                value={searchValue}
-                                placeholder="Buscar Produto"
-                            />
-                        </div>
-                        <div className="col d-flex">
-                            <button className={`${style.button} btn btn-link m-3`} onClick={() => startSearch(searchValue)}>
-                                <FaShoppingCart className="me-2"/>
-                            </button>
-
-                        </div>
-                    </div>
-                    <div className="row gy-5">
-                        <div className="col-12">
-                            <p>Não achou o que procurava? <a href="#">Informe a placa do veículo</a> para itens compatíveis</p>
-                        </div>
-                        <div className="col d-flex">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Cód.:</th>
-                                        <th>Produto</th>
-                                        <th>Marca</th>
-                                        <th>Linha</th>
-                                        <th>Preço unitário</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        currentProducts.map(p => {
-                                            return <tr key={p.codigo}>
-                                                <td>{ p.codigo }</td>
-                                                <td>{ p.nome }</td>
-                                                <td>{ p.marca }</td>
-                                                <td>{ p.linha }</td>
-                                                <td>R$ { p.preco.toFixed(2) }</td>
-                                            </tr>
-                                        })
-                                    }
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    )
+        <Container
+            fluid
+            className={`fullScreenContainer d-flex flex-column justify-content-center align-items-center`}
+        >
+            <Col sm={10}>
+                <Row>
+                    <Col sm={11}>
+                        <Autocomplete
+                            open={autocompleteOpen.current}
+                            options={searchOptions}
+                            forcePopupIcon={false}
+                            onChange={handleOptionSelect}
+                            renderInput={(params) => (
+                                <TextField
+                                    {...params}
+                                    margin={"none"}
+                                    value={searchValue}
+                                    onChange={(e) => setSearchValue(e.target.value)}
+                                    placeholder="Buscar Produto"
+                                    onFocus={handleFocus}
+                                    onBlur={handleBlur}
+                                />
+                            )}
+                        />
+                    </Col>
+                    <Col sm={1} className="d-flex justify-content-center align-items-center">
+                        <button className={`${style.button} btn `} onClick={startSearch}>
+                            <FaShoppingCart/>
+                        </button>
+                    </Col>
+                </Row>
+                <Row className="my-2">
+                    <Col sm={12}>
+                        <TableContainer sx={{maxHeight: "400px", overflow: "auto"}}>
+                            <Table>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell className={"fs-3 fw-bold text-white"}>Cód.:</TableCell>
+                                        <TableCell className={"fs-3 fw-bold text-white"}>Produto</TableCell>
+                                        <TableCell className={"fs-3 fw-bold text-white"}>Marca</TableCell>
+                                        <TableCell className={"fs-3 fw-bold text-white"}>Família</TableCell>
+                                        <TableCell className={"fs-3 fw-bold text-white"}>Linha</TableCell>
+                                        <TableCell className={"fs-3 fw-bold text-white"}>Preço unitário</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {currentProducts.map((p) => (
+                                        <TableRow key={p.codigo}>
+                                            <TableCell sx={{color: "var(--color-light-gray)"}}>{p.codigo}</TableCell>
+                                            <TableCell sx={{color: "var(--color-light-gray)"}}>{p.nome}</TableCell>
+                                            <TableCell sx={{color: "var(--color-light-gray)"}}>{p.marca}</TableCell>
+                                            <TableCell sx={{color: "var(--color-light-gray)"}}>{p.familia}</TableCell>
+                                            <TableCell sx={{color: "var(--color-light-gray)"}}>{p.linha}</TableCell>
+                                            <TableCell sx={{color: "var(--color-light-gray)"}} align={"center"}>
+                                                R$ {p.preco.toFixed(2)}
+                                            </TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </Col>
+                </Row>
+            </Col>
+        </Container>
+    );
 }
