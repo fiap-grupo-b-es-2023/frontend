@@ -1,0 +1,11 @@
+.menuIcon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000; /* This ensures the icon stays on top of other elements */
+}
+.icon{
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+}
