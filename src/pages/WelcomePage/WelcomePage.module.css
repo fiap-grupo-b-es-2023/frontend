@@ -1,3 +1,9 @@
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
 .background {
     background-image: url('src/assets/background.jpg');
     background-size: cover;
@@ -37,4 +43,16 @@
 .video {
     aspect-ratio: 16 / 9;
     width: 60%;
+}
+/* WelcomePage.module.css */
+.custom-dropdown-button {
+    background-color: transparent; /* Remove the blue background */
+    border: none; /* Remove the border */
+    padding: 0; /* Adjust padding */
+    display: flex;
+    align-items: center;
+}
+
+.custom-dropdown-toggle::after {
+    display: none; /* Remove the arrow down symbol */
 }
