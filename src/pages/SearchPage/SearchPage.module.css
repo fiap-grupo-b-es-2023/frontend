@@ -3,9 +3,10 @@
     color: #fff;
 }
 
-.button:hover {
-    color: #000 !important;
-    background-color: #fff !important;
+.button:hover,
+.button:focus {
+    background-color: var(--color-dark-gray) !important; /* Cor de fundo */
+    border: none !important;
 }
 
 

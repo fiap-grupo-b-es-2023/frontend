@@ -1,27 +1,28 @@
-import {useState, useEffect, useCallback, useRef} from "react";
-import {FaShoppingCart} from 'react-icons/fa';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import {useCallback, useEffect, useRef, useState} from "react";
+import ProductDetailsPage from "../ProductDetailsPage/ProductDetailsPage.jsx";
+import {FaShoppingCart} from "react-icons/fa";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import TableContainer from '@mui/material/TableContainer';
-import Table from '@mui/material/Table';
-import TableHead from '@mui/material/TableHead';
-import TableCell from '@mui/material/TableCell';
-import TableRow from '@mui/material/TableRow';
-import TableBody from '@mui/material/TableBody';
-import {Autocomplete, TextField} from '@mui/material';
+import TableContainer from "@mui/material/TableContainer";
+import Table from "@mui/material/Table";
+import TableHead from "@mui/material/TableHead";
+import TableCell from "@mui/material/TableCell";
+import TableRow from "@mui/material/TableRow";
+import TableBody from "@mui/material/TableBody";
+import {Autocomplete, TextField} from "@mui/material";
 
-import style from './SearchPage.module.css';
-import products from './products.json';
+import style from "./SearchPage.module.css";
+import products from "./products.json";
 
 // Função que gera as opções de busca responsivas
 function getSearchOptions(searchValue) {
     return [
-        {label: `Buscar "${searchValue}" em código`, value: "codigo"},
-        {label: `Buscar "${searchValue}" em produto`, value: "nome"},
-        {label: `Buscar "${searchValue}" em marca`, value: "marca"},
-        {label: `Buscar "${searchValue}" em família`, value: "familia"},
-        {label: `Buscar "${searchValue}" em linhas`, value: "linha"},
+        {label: `Buscar "${searchValue}" em código`, value: "code"},
+        {label: `Buscar "${searchValue}" em produto`, value: "name"},
+        {label: `Buscar "${searchValue}" em marca`, value: "brand"},
+        {label: `Buscar "${searchValue}" em família`, value: "family"},
+        {label: `Buscar "${searchValue}" em linhas`, value: "line"},
     ];
 }
 
@@ -31,12 +32,13 @@ function matches(searchValue, product, category) {
     return value?.includes(searchValue.toLowerCase());
 }
 
-
-export default function SearchPage() {
+export default function SearchPage({setCurrentPage}) {
     const [searchValue, setSearchValue] = useState("");
     const [searchType, setSearchType] = useState(null);
     const [currentProducts, setCurrentProducts] = useState(products);
     const [searchOptions, setSearchOptions] = useState(getSearchOptions(""));
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
     const autocompleteOpen = useRef(false);
 
     useEffect(() => {
@@ -81,6 +83,11 @@ export default function SearchPage() {
         autocompleteOpen.current = false;
     };
 
+    const handleRowClick = (product) => {
+        setSelectedProduct(product);
+        setIsModalOpen(true);
+    };
+
     return (
         <Container
             fluid
@@ -107,8 +114,11 @@ export default function SearchPage() {
                             )}
                         />
                     </Col>
-                    <Col sm={1} className="d-flex justify-content-center align-items-center">
-                        <button className={`${style.button} btn `} onClick={startSearch}>
+                    <Col
+                        sm={1}
+                        className="d-flex justify-content-center align-items-center"
+                    >
+                        <button className={`${style.button} btn`} onClick={() => setCurrentPage("CartPage")}>
                             <FaShoppingCart/>
                         </button>
                     </Col>
@@ -119,24 +129,49 @@ export default function SearchPage() {
                             <Table>
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell className={"fs-3 fw-bold text-white"}>Cód.:</TableCell>
-                                        <TableCell className={"fs-3 fw-bold text-white"}>Produto</TableCell>
-                                        <TableCell className={"fs-3 fw-bold text-white"}>Marca</TableCell>
-                                        <TableCell className={"fs-3 fw-bold text-white"}>Família</TableCell>
-                                        <TableCell className={"fs-3 fw-bold text-white"}>Linha</TableCell>
-                                        <TableCell className={"fs-3 fw-bold text-white"}>Preço unitário</TableCell>
+                                        <TableCell className={"fs-3 fw-bold text-white"}>
+                                            Cód.:
+                                        </TableCell>
+                                        <TableCell className={"fs-3 fw-bold text-white"}>
+                                            Produto
+                                        </TableCell>
+                                        <TableCell className={"fs-3 fw-bold text-white"}>
+                                            Marca
+                                        </TableCell>
+                                        <TableCell className={"fs-3 fw-bold text-white"}>
+                                            Família
+                                        </TableCell>
+                                        <TableCell className={"fs-3 fw-bold text-white"}>
+                                            Linha
+                                        </TableCell>
+                                        <TableCell className={"fs-3 fw-bold text-white"}>
+                                            Preço unitário
+                                        </TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
                                     {currentProducts.map((p) => (
-                                        <TableRow key={p.codigo}>
-                                            <TableCell sx={{color: "var(--color-light-gray)"}}>{p.codigo}</TableCell>
-                                            <TableCell sx={{color: "var(--color-light-gray)"}}>{p.nome}</TableCell>
-                                            <TableCell sx={{color: "var(--color-light-gray)"}}>{p.marca}</TableCell>
-                                            <TableCell sx={{color: "var(--color-light-gray)"}}>{p.familia}</TableCell>
-                                            <TableCell sx={{color: "var(--color-light-gray)"}}>{p.linha}</TableCell>
-                                            <TableCell sx={{color: "var(--color-light-gray)"}} align={"center"}>
-                                                R$ {p.preco.toFixed(2)}
+                                        <TableRow key={p.code} onClick={() => handleRowClick(p)}>
+                                            <TableCell sx={{color: "var(--color-light-gray)"}}>
+                                                {p.code}
+                                            </TableCell>
+                                            <TableCell sx={{color: "var(--color-light-gray)"}}>
+                                                {p.name}
+                                            </TableCell>
+                                            <TableCell sx={{color: "var(--color-light-gray)"}}>
+                                                {p.brand}
+                                            </TableCell>
+                                            <TableCell sx={{color: "var(--color-light-gray)"}}>
+                                                {p.family}
+                                            </TableCell>
+                                            <TableCell sx={{color: "var(--color-light-gray)"}}>
+                                                {p.line}
+                                            </TableCell>
+                                            <TableCell
+                                                sx={{color: "var(--color-light-gray)"}}
+                                                align={"center"}
+                                            >
+                                                R$ {p.price.toFixed(2)}
                                             </TableCell>
                                         </TableRow>
                                     ))}
@@ -146,6 +181,9 @@ export default function SearchPage() {
                     </Col>
                 </Row>
             </Col>
+            {isModalOpen && (
+                <ProductDetailsPage product={selectedProduct} closeModal={() => setIsModalOpen(false)} />
+            )}
         </Container>
     );
 }
