@@ -1,15 +1,54 @@
-import { Container } from 'react-bootstrap';
+import {useState} from 'react';
+import CartProvider from './CartContext.jsx';
 import WelcomePage from "./pages/WelcomePage/WelcomePage.jsx";
+import FormPage from "./pages/FormPage/FormPage.jsx";
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage.jsx";
 import SearchPage from "./pages/SearchPage/SearchPage.jsx";
+import CartPage from "./pages/CartPage/CartPage.jsx";
+import AboutPage from "./pages/AboutPage/AboutPage.jsx";
+import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage.jsx";
+import {ThemeProvider} from "@mui/material";
+import darkTheme from "./theme.js";
 import './App.css'
 
-function App() {
 
-  return (
-    <>
-        <WelcomePage />
-    </>
-  )
+function App() {
+    const [currentPage, setCurrentPage] = useState('SearchPage');
+
+    let pageComponent;
+    switch (currentPage) {
+        case 'WelcomePage':
+            pageComponent = <WelcomePage setCurrentPage={setCurrentPage}/>;
+            break;
+        case 'FormPage':
+            pageComponent = <FormPage/>;
+            break;
+        case 'CheckoutPage':
+            pageComponent = <CheckoutPage/>;
+            break;
+        case 'SearchPage':
+            pageComponent = <SearchPage setCurrentPage={setCurrentPage}/>;
+            break;
+        case 'CartPage':
+            pageComponent = <CartPage  setCurrentPage={setCurrentPage}/>;
+            break;
+        case 'AboutPage':
+            pageComponent = <AboutPage/>;
+            break;
+        case 'ProductDetailsPage':
+            pageComponent = <ProductDetailsPage/>;
+            break;
+        default:
+            pageComponent = <WelcomePage/>;
+    }
+
+    return (
+        <CartProvider>
+            <ThemeProvider theme={darkTheme}>
+                {pageComponent}
+            </ThemeProvider>
+        </CartProvider>
+    )
 }
 
 export default App

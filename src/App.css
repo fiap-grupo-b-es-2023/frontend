@@ -5,6 +5,7 @@
   --color-dark-gray: #2F2F2F;
   --color-black: #212121;
   --color-green: #6CBC6F;
+  --color-green-darker: #4A9D4A;
   --color-red: #FF4949;
 
   /* Famílias de fontes */
@@ -16,6 +17,6 @@
 body {
   color: var(--color-white);
   background-color: var(--color-black);
-  font-family: var(--font-primary);
+  font-family: var(--font-primary), sans-serif;
 }
 
