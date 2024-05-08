@@ -13,15 +13,14 @@ import './App.css'
 
 
 function App() {
-    const [currentPage, setCurrentPage] = useState('SearchPage');
-
+    const [currentPage, setCurrentPage] = useState('WelcomePage');
     let pageComponent;
     switch (currentPage) {
         case 'WelcomePage':
             pageComponent = <WelcomePage setCurrentPage={setCurrentPage}/>;
             break;
         case 'FormPage':
-            pageComponent = <FormPage/>;
+            pageComponent = <FormPage setCurrentPage={setCurrentPage}/>;
             break;
         case 'CheckoutPage':
             pageComponent = <CheckoutPage/>;

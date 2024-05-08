@@ -3,7 +3,6 @@ import ProductDetailsPage from "../ProductDetailsPage/ProductDetailsPage.jsx";
 import {FaShoppingCart} from "react-icons/fa";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
@@ -89,10 +88,7 @@ export default function SearchPage({setCurrentPage}) {
     };
 
     return (
-        <Container
-            fluid
-            className={`fullScreenContainer d-flex flex-column justify-content-center align-items-center`}
-        >
+        <div className={"fullScreenContainer"}>
             <Col sm={10}>
                 <Row>
                     <Col sm={11}>
@@ -184,6 +180,6 @@ export default function SearchPage({setCurrentPage}) {
             {isModalOpen && (
                 <ProductDetailsPage product={selectedProduct} closeModal={() => setIsModalOpen(false)} />
             )}
-        </Container>
+        </div>
     );
 }

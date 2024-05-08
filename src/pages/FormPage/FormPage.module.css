@@ -5,13 +5,8 @@
 .formControl{
     background-color: var(--color-dark-gray);
 }
-.formControl::placeholder {
-    color: var(--color-lighter-gray);
-}
-.formControl:focus{
-   background-color: var( --color-middle-gray);
-}
+
 .sendButton{
-    background-color: var(--color-green);
+    background-color: var(--color-green) !important;
     border: 0;
 }

@@ -9,20 +9,11 @@ import IconButton from '@mui/material/IconButton';
 import {FaPlus, FaMinus} from "react-icons/fa";
 import {MdDelete} from "react-icons/md";
 import {Image} from 'react-bootstrap';
-import {useState} from "react";
 
-function createData(name, price, quantity) {
-    return {name, price, quantity};
-}
 
-const initialRows = [
-    createData('Produto 1', 'R$ XX,XX', 2),
-    createData('Produto 2', 'R$ XX,XX', 2),
-    createData('Produto 3', 'R$ XX,XX', 2),
-    createData('Produto 4', 'R$ XX,XX', 2),
-    createData('Produto 5', 'R$ XX,XX', 2),
-    createData('Produto 6', 'R$ XX,XX', 2),
-];
+
+
+
 
 export default function CustomizedTables() {
     const {cart, removeFromCart, updateQuantity} = useContext(CartContext);
@@ -50,7 +41,7 @@ export default function CustomizedTables() {
                             key={product.code}
                             sx={{'&:last-child td, &:last-child th': {border: 0}}}
                         >
-                            <TableCell component="th" scope="row">
+                            <TableCell component="th" scope="row" sx={{paddingLeft: '0'}}>
                                 <div className="d-flex align-items-center">
                                     <Image
                                         src="https://via.placeholder.com/60"
@@ -64,7 +55,7 @@ export default function CustomizedTables() {
                                 </div>
                             </TableCell>
 
-                            <TableCell sx={{color: "#fff"}} align="right">
+                            <TableCell sx={{color: "#fff"}} align="right" sx={{paddingRight: '0'}}>
                                 <IconButton onClick={() => handleDecrement(product)} sx={{color: "#fff"}}>
                                     <FaMinus style={{fontSize: '1em'}}/>
                                 </IconButton>

@@ -9,7 +9,7 @@
 }
 .backButton:hover,
 .backButton:focus {
-   background-color: var(--color-dark-gray) !important; /* Cor de fundo */
+    background-color: transparent !important;
 }
 
 .cartTitle {
@@ -25,3 +25,13 @@
     margin: 10px 0 20px;
 }
 
+.paymentButton,
+.paymentButton:disabled
+{
+    background-color: var(--color-green);
+    border: none;
+}
+.paymentButton:hover,
+.paymentButton:focus {
+    background-color: var(--color-green-darker);
+}

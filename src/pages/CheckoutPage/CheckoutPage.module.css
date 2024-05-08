@@ -16,7 +16,7 @@
 }
 
 .title {
-    color: var(--primary-red);
+    color: var(--color-red);
 }
 
 .buttons {
@@ -27,7 +27,7 @@
 }
 
 .button {
-    background-color: var(--primary-red);
+    background-color: var(--color-red);
     color: white;
     font-size: 30px;
     font-weight: bold;
@@ -45,7 +45,7 @@
 
 .icon {
     font-size: 100px;
-    color: var(--primary-red);
+    color: var(--color-red);
     position: absolute;
     right: 0;
     bottom: 0;

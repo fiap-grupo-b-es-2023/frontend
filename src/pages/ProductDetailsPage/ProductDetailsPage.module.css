@@ -1,5 +1,5 @@
 .modalContent{
-    background-color: var(--color-middle-gray);
+    background-color: var(--color-dark-gray);
     padding: 2rem;
 }
 
@@ -22,7 +22,6 @@
 }
 
 .modalFooter {
-    /* Remover a borda superior padrão do footer do modal */
     border-top: none;
 }
 

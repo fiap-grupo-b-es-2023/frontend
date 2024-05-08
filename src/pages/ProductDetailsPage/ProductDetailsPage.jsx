@@ -1,20 +1,33 @@
-import {useContext, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {Modal, Button, Row, Col, Image} from 'react-bootstrap';
 import {CartContext} from "../../CartContext.jsx";
 import style from './ProductDetailsPage.module.css';
 
 export default function ProductDetailsPage({product, closeModal}) {
     const [quantity, setQuantity] = useState(1); // Supondo que você queira gerenciar a quantidade
-
-    // Funções para incrementar e decrementar a quantidade
+    const {cart, addToCart, updateQuantity } = useContext(CartContext);    // Funções para incrementar e decrementar a quantidade
     const incrementQuantity = () => setQuantity(prevQuantity => prevQuantity + 1);
     const decrementQuantity = () => setQuantity(prevQuantity => (prevQuantity > 1 ? prevQuantity - 1 : 1));
 
-    const {addToCart } = useContext(CartContext);
+
     const handleAddToCart = () => {
-        addToCart(product, quantity);
+        const productInCart = cart.find(item => item.code === product.code);
+        if (productInCart) {
+            // Se o produto já está no carrinho, atualizamos a quantidade
+            updateQuantity(product.code, quantity);
+        } else {
+            // Se o produto não está no carrinho, adicionamos ao carrinho
+            addToCart(product, quantity);
+        }
         closeModal();
-      };
+    };
+
+    useEffect(() => {
+        const productInCart = cart.find(item => item.code === product.code);
+        if (productInCart) {
+            setQuantity(productInCart.quantity);
+        }
+    }, [cart, product]);
     
     return (
         <Modal
