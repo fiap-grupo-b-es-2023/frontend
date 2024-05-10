@@ -32,7 +32,7 @@ function App() {
             pageComponent = <CartPage  setCurrentPage={setCurrentPage}/>;
             break;
         case 'AboutPage':
-            pageComponent = <AboutPage/>;
+            pageComponent = <AboutPage setCurrentPage={setCurrentPage}/>;
             break;
         case 'ProductDetailsPage':
             pageComponent = <ProductDetailsPage/>;
