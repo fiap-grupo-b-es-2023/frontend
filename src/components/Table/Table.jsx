@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {CartContext} from "../../CartContext.jsx";
+import {CartContext} from "../../contexts/CartContext.jsx";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -55,7 +55,7 @@ export default function CustomizedTables() {
                                 </div>
                             </TableCell>
 
-                            <TableCell sx={{color: "#fff"}} align="right" sx={{paddingRight: '0'}}>
+                            <TableCell sx={{color: "#fff", paddingRight: '0'}} align="right">
                                 <IconButton onClick={() => handleDecrement(product)} sx={{color: "#fff"}}>
                                     <FaMinus style={{fontSize: '1em'}}/>
                                 </IconButton>

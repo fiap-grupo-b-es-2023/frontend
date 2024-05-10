@@ -33,6 +33,18 @@ body {
     align-items: center;
 }
 
+.backButton{
+    color: #ffffff; /* Cor do texto */
+    font-size: 18px;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    padding-left: 0;
+}
+.backButton:hover,
+.backButton:focus {
+    background-color: transparent !important;
+}
 /* Esconde a scrollbar para IE, Edge e Firefox */
 ::-webkit-scrollbar {
     display: none;

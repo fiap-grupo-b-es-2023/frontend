@@ -32,7 +32,7 @@ export default function WelcomePage({setCurrentPage}) {
                     </div>}
                 {showVideo &&
                     <div className={`d-flex  flex-column align-items-center w-100`} onClick={(e) => e.stopPropagation()}>
-                        <Button className={`${style.backButton} align-self-start pb-5`} onClick={() => setShowVideo(false)}>
+                        <Button className={"backButton align-self-start pb-5"} onClick={() => setShowVideo(false)}>
                             <IoIosArrowBack className="me-2" /> Voltar
                         </Button>
                         <iframe

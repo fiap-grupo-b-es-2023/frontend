@@ -48,14 +48,3 @@ h1 {
 .custom-dropdown-toggle::after {
     display: none; /* Remove the arrow down symbol */
 }
-.backButton{
-    color: #ffffff; /* Cor do texto */
-    font-size: 18px;
-    font-weight: bold;
-    background: transparent;
-    border: none;
-}
-.backButton:hover,
-.backButton:focus {
-    background-color: transparent !important;
-}

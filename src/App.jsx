@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import CartProvider from './CartContext.jsx';
+import CartProvider from './contexts/CartContext.jsx';
 import WelcomePage from "./pages/WelcomePage/WelcomePage.jsx";
 import FormPage from "./pages/FormPage/FormPage.jsx";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage.jsx";
@@ -9,7 +9,6 @@ import AboutPage from "./pages/AboutPage/AboutPage.jsx";
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage.jsx";
 import {ThemeProvider} from "@mui/material";
 import darkTheme from "./theme.js";
-import './App.css'
 
 
 function App() {

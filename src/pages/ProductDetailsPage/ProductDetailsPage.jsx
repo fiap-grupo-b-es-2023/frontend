@@ -1,6 +1,6 @@
 import {useContext, useEffect, useState} from 'react';
 import {Modal, Button, Row, Col, Image} from 'react-bootstrap';
-import {CartContext} from "../../CartContext.jsx";
+import {CartContext} from "../../contexts/CartContext.jsx";
 import style from './ProductDetailsPage.module.css';
 
 export default function ProductDetailsPage({product, closeModal}) {

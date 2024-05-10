@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {CartContext} from "../../CartContext.jsx";
+import {CartContext} from "../../contexts/CartContext.jsx";
 import { Button, Col, Row} from 'react-bootstrap';
 import Table from "../../components/Table/Table.jsx";
 import {IoIosArrowBack} from 'react-icons/io';
